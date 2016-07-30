@@ -1,0 +1,2 @@
+# ruby_project_template
+rubyでなんかのプロジェクト作るときにテンプレ

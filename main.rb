@@ -3,4 +3,4 @@
 # サンプル
 # @author tamiwa
 #
-require "./libs/project_sample"
+require './libs/project_sample'

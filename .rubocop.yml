@@ -1,0 +1,15 @@
+# コメントにASCII以外の文字コードを使用することを禁止(デフォルトはtrue(有効))
+Style/AsciiComments:
+  Enabled: false
+
+# メソッドの最大行数(デフォルトは10行)
+Style/MethodLength:
+  Max: 30
+
+Metrics/LineLength:
+  Max: 100
+
+Metrics/AbcSize:
+  # The ABC size is a calculated magnitude, so this number can be a Fixnum or
+  # a Float.
+  Max: 50

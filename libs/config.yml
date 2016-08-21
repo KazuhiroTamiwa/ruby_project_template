@@ -1,0 +1,14 @@
+version : 1.0
+
+# メール関連
+mail_address : ""
+mail_password : ""
+
+# データベース情報
+db_host : ""
+db_name : ""
+db_username : ""
+db_password : ""
+
+# 各種テーブル名
+hogehoge_table_name : "hogehoge"

@@ -8,8 +8,6 @@
 # メール送信クラス
 #
 class SendMail
-  MAIL_ADDRESS = ""
-  PASSWORD = ""
 
   #
   # エラー時メール送信機能
@@ -22,15 +20,15 @@ class SendMail
     mail_to.each do |mail_address|
       mail = Mail.new
 
-      options = { :address              => "smtp.gmail.com",
-                  :port                 => 587,
-                  :domain               => "smtp.gmail.com",
-                  :user_name            => MAIL_ADDRESS,
-                  :password             => PASSWORD,
-                  :authentication       => :plain,
-                  :enable_starttls_auto => true  }
+      options = { address:              'smtp.gmail.com',
+                  port:                 587,
+                  domain:               'smtp.gmail.com',
+                  user_name:            ProjectSample.get_constant('mail_address'),
+                  password:             ProjectSample.get_constant('mail_password'),
+                  authentication:       :plain,
+                  enable_starttls_auto: true }
       mail.charset = 'utf-8'
-      mail.from MAIL_ADDRESS
+      mail.from ProjectSample.get_constant('mail_address')
       mail.to mail_address
       mail.subject title
       mail.body error

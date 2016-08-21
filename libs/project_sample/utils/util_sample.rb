@@ -2,14 +2,15 @@
 # utilサンプル
 # @author tamiwa
 #
-require "rexml/document"
+require 'rexml/document'
 require 'active_support'
 require 'active_support/core_ext'
 
-#
-# xmlファイルをパースする
-#
+
 class ProjectSample
+  #
+  # xmlファイルをパースする
+  #
   class UtilSample
 
     #
@@ -21,9 +22,7 @@ class ProjectSample
       doc = REXML::Document.new(File.new(path))
 
       # Hashに変換
-      hash = Hash.from_xml(doc.to_s)
-
-      return hash
+      Hash.from_xml(doc.to_s)
     end
 
   end

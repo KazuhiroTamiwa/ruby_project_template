@@ -1,16 +1,27 @@
 #
-# クロールのクラス
+# サンプルプロジェクトクラス
 # @author tamiwa
 #
-require "mail"
+require 'mail'
 require 'mysql2'
+require 'json'
+require 'yaml'
 
 
 #
 # 基本のクラス
 #
 class ProjectSample
-  VERSION = "1.0"
+  #
+  # 指定されたkeyのvalueを取得する
+  #
+  # @param [String] key key
+  #
+  # @return [Object] value
+  #
+  def self.get_constant(key)
+    YAML.load_file('libs/config.yml')[key]
+  end
 
 end
 
@@ -21,4 +32,4 @@ end
   utils/util_sample
   hogehoge
   mail
-).each{|m| require File.dirname(__FILE__) + '/project_sample/' + m }
+).each { |m| require File.dirname(__FILE__) + '/project_sample/' + m }

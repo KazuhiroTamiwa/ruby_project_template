@@ -7,14 +7,6 @@
 # DB接続クライアントモジュール
 #
 module ModelModule
-  # データベース情報
-  DB_HOST = ""
-  DB_NAME = ""
-  DB_USERNAME = ""
-  DB_PASSWORD = ""
-
-  # 各種テーブル名
-  HOGEHOGE_TABLE_NAME = "hogehoge_table"
 
   attr_accessor :client
 
@@ -25,10 +17,12 @@ module ModelModule
   def initialize
     super
     if @client.nil?
-      @client = Mysql2::Client.new(:host => DB_HOST, :username => DB_USERNAME, :password => DB_PASSWORD, :database => DB_NAME, :reconnect => true)
+      @client = Mysql2::Client.new(host: ProjectSample.get_constant('db_host'),
+                                   username: ProjectSample.get_constant('db_username'),
+                                   password: ProjectSample.get_constant('db_password'),
+                                   database: ProjectSample.get_constant('db_name'),
+                                   reconnect: true)
     end
-
-    return @client
   end
 
 
@@ -47,8 +41,12 @@ module ModelModule
   def query_builder(query)
     begin
       @client.query(query)
-    rescue => e
-      @client = Mysql2::Client.new(:host => DB_HOST, :username => DB_USERNAME, :password => DB_PASSWORD, :database => DB_NAME, :reconnect => true)
+    rescue
+      @client = Mysql2::Client.new(host: ProjectSample.get_constant('db_host'),
+                                   username: ProjectSample.get_constant('db_username'),
+                                   password: ProjectSample.get_constant('db_password'),
+                                   database: ProjectSample.get_constant('db_name'),
+                                   reconnect: true)
       @client.query(query)
     end
   end

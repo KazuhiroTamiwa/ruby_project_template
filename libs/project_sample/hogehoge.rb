@@ -4,6 +4,9 @@
 #
 
 class ProjectSample
+  #
+  # hogehogeクラス
+  #
   class Hogehoge
 
     def self.sample

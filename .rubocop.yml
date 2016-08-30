@@ -4,12 +4,51 @@ Style/AsciiComments:
 
 # メソッドの最大行数(デフォルトは10行)
 Style/MethodLength:
-  Max: 30
+  Max: 50
 
 Metrics/LineLength:
-  Max: 100
+  Max: 200
+  Exclude:
+    - "db/migrate/*.rb"
+
+# 6 は強すぎるので緩める
+Metrics/CyclomaticComplexity:
+  Max: 10
 
 Metrics/AbcSize:
   # The ABC size is a calculated magnitude, so this number can be a Fixnum or
   # a Float.
-  Max: 50
+  Max: 30
+
+# * 同名のメソッドがある場合にローカル変数に `_` を付ける
+# * 一時変数として `_` を付ける
+# というテクニックは頻出する
+Lint/UnderscorePrefixedVariableName:
+  Enabled: false
+
+# シングルクォーテーションとダブルクォーテーション両方OK
+Style/StringLiterals:
+  Enabled: false
+
+# 30 行超えるのは migration ファイル以外滅多に無い
+Metrics/MethodLength:
+  Max: 30
+  Exclude:
+    - "db/migrate/*.rb"
+
+# 分岐の数。ガード句を多用しているとデフォルト 7 だと厳しい
+Metrics/PerceivedComplexity:
+  Max: 8
+
+# has_ から始まるメソッドは許可する
+Style/PredicateName:
+  NamePrefixBlacklist:
+    - "is_"
+    - "have_"
+  NamePrefix:
+    - "is_"
+    - "have_"
+
+# Hash#has_key? は許可したい
+Style/PreferredHashMethods:
+  Enabled: false

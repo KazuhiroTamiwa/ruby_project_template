@@ -2,9 +2,8 @@
 # サンプルプロジェクトクラス
 # @author tamiwa
 #
-require 'mail'
-require 'mysql2'
-require 'json'
+require 'bundler/setup'
+Bundler.require
 require 'yaml'
 
 

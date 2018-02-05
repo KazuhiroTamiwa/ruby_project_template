@@ -23,7 +23,7 @@ class ProjectSample
     #
     # @param [Object] hogehoge hogehoge
     #
-    def inserter(hogehoge)
+    def insert(hogehoge)
       # クエリの用意
       query = "INSERT INTO #{@hogehoge_table_name} (key) VALUES ('#{hogehoge}');"
 
